@@ -4,7 +4,13 @@ import express from "express";
 const app = express();
 
 let cors = require("cors");
+//Allowing CORS to FRONTEND reqs in another domain
 app.use(cors());
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 // const mongoose = require("mongoose");
 // const userRouter = require("../routes/public/user");
@@ -12,9 +18,9 @@ app.use(cors());
 // const noteRouter = require("../routes/private/note");
 // const bp = require("body-parser");
 import mongoose from "mongoose";
-import userRouter from "../routes/public/user";
-import boardRouter from "../routes/private/board";
-import noteRouter from "../routes/private/note";
+import userRouter from "./routes/public/user";
+import boardRouter from "./routes/private/board";
+import noteRouter from "./routes/private/note";
 import bp from "body-parser";
 
 app.use(bp.json());

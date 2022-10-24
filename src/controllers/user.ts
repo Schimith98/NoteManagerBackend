@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { IUser } from "../models/user";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

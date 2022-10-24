@@ -1,15 +1,20 @@
 require("dotenv").config();
+// const express = require("express");
 import express from "express";
 const app = express();
 
 let cors = require("cors");
 app.use(cors());
 
+// const mongoose = require("mongoose");
+// const userRouter = require("../routes/public/user");
+// const boardRouter = require("../routes/private/board");
+// const noteRouter = require("../routes/private/note");
+// const bp = require("body-parser");
 import mongoose from "mongoose";
 import userRouter from "../routes/public/user";
 import boardRouter from "../routes/private/board";
 import noteRouter from "../routes/private/note";
-
 import bp from "body-parser";
 
 app.use(bp.json());
@@ -32,5 +37,5 @@ if (mongoDBconnection) {
 }
 
 app.listen(process.env.PORT || 3001, () => {
-  console.log("Alive on:", 3001);
+  console.log("Alive");
 });
